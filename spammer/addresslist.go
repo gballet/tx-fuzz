@@ -145,6 +145,7 @@ func CreateAddresses(N int) ([]string, []string) {
 func Airdrop(config *Config, value *big.Int) error {
 	backend := ethclient.NewClient(config.backend)
 	sender := crypto.PubkeyToAddress(config.faucet.PublicKey)
+	fmt.Printf("sending at %x\n", sender)
 	var tx *types.Transaction
 	chainid, err := backend.ChainID(context.Background())
 	if err != nil {
